@@ -1,0 +1,7 @@
+{
+  "name": "practical-app",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
