@@ -1,0 +1,68 @@
+<ion-content class="list-view-background">
+  <ion-header>
+    <ion-toolbar color="danger">
+      <ion-buttons slot="start">
+        <ion-button disabled>
+          <ion-icon name="person-circle-sharp"></ion-icon>
+          <!-- <ion-icon name="star"></ion-icon> -->
+        </ion-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-button (click)="openModal()">
+          <ion-icon name="add-circle-sharp"></ion-icon>
+          <!-- <ion-icon slot="icon-only" ios="ellipsis-vertical" md="ellipsis-vertical"></ion-icon> -->
+        </ion-button>
+      </ion-buttons>
+
+      <ion-title>User Details</ion-title>
+    </ion-toolbar>
+    <!-- <ion-toolbar>
+      <ion-title>
+        <span>User Details</span>
+      </ion-title>
+    </ion-toolbar> -->
+  </ion-header>
+
+  <ng-container *ngIf="userData">
+    <ion-list>
+      <ion-item-sliding *ngFor="let usersList of userData.data">
+        <ion-item>
+          <ion-avatar slot="start">
+            <img [src]="usersList.avatar">
+          </ion-avatar>
+          <ion-label>
+            <h2>{{ usersList.first_name }} {{ usersList.last_name }}</h2>
+            <h3>{{ usersList.email }}</h3>
+          </ion-label>
+          <ion-item-options side="end">
+            <ion-item-option color="danger" (click)="swipeToDelete(usersList.id)">
+              <ion-button class="delete-btn" color="danger">
+                <ion-icon name="trash-sharp"></ion-icon>
+              </ion-button>
+              <!-- <ion-icon name="trash-sharp"></ion-icon> -->
+            </ion-item-option>
+          </ion-item-options>
+        </ion-item>
+      </ion-item-sliding>
+    </ion-list>
+
+
+
+
+
+    <!-- <ion-item-sliding>
+      <ion-item *ngFor="let usersList of userData.data">
+        <ion-avatar slot="end">
+          <img [src]="usersList.avatar" />
+        </ion-avatar>
+        <ion-label>
+          <div><span style="font-weight: bolder;">Name:</span> {{ usersList.first_name }} {{ usersList.last_name }}</div>
+          <div><span style="font-weight: bolder;">Email:</span> {{ usersList.email }}</div>
+        </ion-label>
+        <ion-item-options side="end">
+          <ion-item-option color="danger">Delete</ion-item-option>
+        </ion-item-options>
+      </ion-item>
+    </ion-item-sliding> -->
+  </ng-container>
+</ion-content>
